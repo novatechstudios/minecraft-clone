@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Menus</title>
+</head>
+<body>
+    <div id="mojangscreen"></div>
+    <img src="./textures/minecraft.png" alt="" class="mclogo">
+    <div class="buttons">
+        <div onclick="startGame()" class="btn">Play</div>
+    </div>
+    <style>
+        body {
+            background: url("./textures/background.gif") no-repeat center;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            image-rendering: pixelated;
+            font-family: 'Minecraft', sans-serif;
+            color: white;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        @font-face {
+          src: url("./assets/Minecraft.otf");
+          font-family: 'Minecraft';
+        }
+
+        .btn {
+            height: 8vh;
+            aspect-ratio: 10 / 1;
+            background: url("./textures/button.png") no-repeat center;
+            background-size: cover;
+            color: inherit;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: inherit;
+            font-size: 3.5vh;
+        }
+
+        .btn:hover {
+            background: url("./textures/button_highlighted.png") no-repeat center;
+            background-size: cover;
+        }
+
+        .mclogo {
+            height: 25vh;
+            position: fixed;
+            top: 10vh;
+        }
+
+        * {
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        #mojangscreen {
+            width: 100vw;
+            height: 100vh;
+            background: url("./textures/mojang.jpeg") no-repeat center;
+            background-size: cover;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 1s linear;
+            z-index: 150000000000000000000000000;
+        }
+    </style>
+    <script src="./src/music.js"></script>
+    <script>
+        setTimeout(function () {
+            document.getElementById("mojangscreen").style.opacity = 0;
+            setTimeout(function () {
+                document.getElementById("mojangscreen").remove();
+            }, 1000);
+        }, 2000);
+
+        function startGame() {
+            window.location.href = "./index.html";
+        }
+    </script>
+</body>
+</html>

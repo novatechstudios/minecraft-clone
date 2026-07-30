@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            image-rendering: pixelated;
+        }
+
+        #fps {
+          position: fixed;
+          z-index: 1500;
+          top: 0;
+          left: 0;
+          backdrop-filter: brightness(20%);
+          color: white;
+          font-family: 'Minecraft', sans-serif;
+        }
+
+        @font-face {
+          src: url("./assets/Minecraft.otf");
+          font-family: 'Minecraft';
+        }
+
+        * {
+          user-select: none;
+          -moz-user-select: none;
+          -webkit-user-drag: none;
+        }
+
+        .crosshair {
+          width: 7vh;
+          height: 7vh;
+          pointer-events: none;
+          z-index: 15000;
+          position: fixed;
+          mix-blend-mode: difference;
+        }
+        .hotbar {
+          height: 10vh;
+          pointer-events: none;
+          z-index: 15000;
+          position: fixed;
+          bottom: 0;
+        }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "./node_modules/three/build/three.module.js",
+        "three/addons/": "./node_modules/three/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+    <img class="crosshair" src="./textures/crosshair.png">
+    <img class="hotbar" src="./textures/hotbar.png">
+    <span id="fps">FPS: 0</span>
+    <script src="./src/game.js" type="module"></script>
+    <script src="./src/music.js"></script>
+</body>
+</html>
